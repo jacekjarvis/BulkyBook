@@ -9,37 +9,48 @@
 
 <h1>Category (Jacek Version)</h1>
 
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class = "col-6">
+            <h2 class="text-primary">Category</h2>
+        </div>
+        <div class = "col-6">
+            <a asp-controller="Category" asp-action="Create" class="btn btn-primary ">Create</a>
+        </div>
 
-<table class="table table-bordered table-striped" style="width:100%" >
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Order</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
+    </div>
+
+
+
+
+    <table class="table table-bordered table-striped" style="width:100%" >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Order</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
             
-            @for (int i = 0; i < count  ; i++)
-            {
-                <td width="10%">@myList[i].Id    </td>
-                <td width="50%">@myList[i].Name</td>
-                <td>@myList[i].DisplayOrder</td>
-            }
-        </tr>
+                @for (int i = 0; i < count  ; i++)
+                {
+                    <td width="10%">@myList[i].Id    </td>
+                    <td width="50%">@myList[i].Name</td>
+                    <td>@myList[i].DisplayOrder</td>
+                }
+            </tr>
         
-@*        <tr>
-            @foreach (var obj in Model)
-            {
-                <td width="10%">@obj.Id</td>
-                <td width="50%">@obj.Name</td>
-                <td>@obj.DisplayOrder</td>
-            }
-        </tr>*@
+    @*        <tr>
+                @foreach (var obj in Model)
+                {
+                    <td width="10%">@obj.Id</td>
+                    <td width="50%">@obj.Name</td>
+                    <td>@obj.DisplayOrder</td>
+                }
+            </tr>*@
+        </tbody>
+    </table>
 
-
-
-    </tbody>
-
-</table>
+</div>
