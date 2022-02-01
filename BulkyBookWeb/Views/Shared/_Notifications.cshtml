@@ -1,0 +1,25 @@
+﻿
+@if (TempData["success"] != null)
+{
+    @*local java script file*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*toaster java script import*@
+    <script src= "//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    
+    <h2>@TempData["success"]</h2>
+    
+    @*And now lets code the Toaster message with Javascript:*@
+    <script type="text/javascript">
+        toastr.success('@TempData["success"]');
+    </script> 
+
+}
+
+@if (TempData["error"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src= "//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.success('@TempData["error"]');
+    </script> 
+}
