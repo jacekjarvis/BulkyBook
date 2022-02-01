@@ -43,10 +43,11 @@ namespace BulkyBookWeb.Controllers
             {
                 _db.Categories.Add(obj);
                 _db.SaveChanges();
+                TempData["success"] = "The record was created successfully";
 
                 return RedirectToAction("Index");
             }
-            TempData["success"] = "The record was created successfully";
+            
             return View();
         }
 
@@ -80,10 +81,11 @@ namespace BulkyBookWeb.Controllers
             {
                 _db.Categories.Update(obj);
                 _db.SaveChanges();
+                TempData["success"] = "The record was updated successfully";
 
                 return RedirectToAction("Index");
-            }
-            TempData["success"] = "The record was updated successfully";
+
+            }  
             return View();
         }
 
