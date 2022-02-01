@@ -51,11 +51,21 @@ namespace BulkyBookWeb.Controllers
 
         //----------------------------------------------------------------------------
         //EDIT GET
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int? id)
         {
             //IEnumerable<Category> objCategoryList = _db.Categories;
             //return View(objCategoryList);
+            if (id == null || id ==0)
+            {
+                return NotFound();
+            }
+
             var obj = _db.Categories.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
 
             return View(obj);
         }

@@ -41,7 +41,7 @@
                     <td width="50%">@myList[i].Name</td>
                     <td>@myList[i].DisplayOrder</td>
                     <td>
-                        <a asp-controller="Category" asp-action="Edit" asp-route-id="@myList[i].Id" class="btn btn-secondary" style="width:150px">Edit</a>
+                        <a asp-controller="Category" asp-action="Edit" asp-route-id="@myList[i].Id" class="btn btn-secondary mx-2" ><i class="bi bi-pencil-square"></i> &nbsp; Edit</a>
                     </td>
                 </tr>
             }
