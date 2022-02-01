@@ -24,7 +24,8 @@ namespace BulkyBookWeb.Controllers
 
             return View(objCategoryList);
         }
-
+        
+        //----------------------------------------------------------------------------
         //CREATE GET
         public IActionResult Create()
         {
@@ -41,6 +42,32 @@ namespace BulkyBookWeb.Controllers
             if (ModelState.IsValid)
             {
                 _db.Categories.Add(obj);
+                _db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        //----------------------------------------------------------------------------
+        //EDIT GET
+        public IActionResult Edit(int id)
+        {
+            //IEnumerable<Category> objCategoryList = _db.Categories;
+            //return View(objCategoryList);
+            var obj = _db.Categories.Find(id);
+
+            return View(obj);
+        }
+
+        //EDIT POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Category obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Categories.Update(obj);
                 _db.SaveChanges();
 
                 return RedirectToAction("Index");

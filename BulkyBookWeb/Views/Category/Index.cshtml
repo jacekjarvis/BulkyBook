@@ -29,6 +29,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Order</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -39,6 +40,9 @@
                     <td width="10%">@myList[i].Id    </td>
                     <td width="50%">@myList[i].Name</td>
                     <td>@myList[i].DisplayOrder</td>
+                    <td>
+                        <a asp-controller="Category" asp-action="Edit" asp-route-id="@myList[i].Id" class="btn btn-secondary" style="width:150px">Edit</a>
+                    </td>
                 </tr>
             }
             
