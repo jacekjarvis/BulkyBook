@@ -46,6 +46,7 @@ namespace BulkyBookWeb.Controllers
 
                 return RedirectToAction("Index");
             }
+            TempData["success"] = "The record was created successfully";
             return View();
         }
 
@@ -82,7 +83,45 @@ namespace BulkyBookWeb.Controllers
 
                 return RedirectToAction("Index");
             }
+            TempData["success"] = "The record was updated successfully";
             return View();
+        }
+
+
+        //----------------------------------------------------------------------------
+        //DELETE GET
+        public IActionResult Delete(int? id)
+        {
+            //IEnumerable<Category> objCategoryList = _db.Categories;
+            //return View(objCategoryList);
+            if (id == null || id ==0)
+            {
+                return NotFound();
+            }
+
+            var obj = _db.Categories.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+
+            return View(obj);
+        }
+
+        //DELETE POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(Category obj)
+        {
+
+            _db.Categories.Remove(obj);
+            _db.SaveChanges();
+
+            TempData["success"] = "The record was deleted successfully";
+            return RedirectToAction("Index");
+
+            //return View();
         }
     }
 }

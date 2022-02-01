@@ -14,9 +14,9 @@
         <div class = "col-6">
             <h2 class="text-primary">Category</h2>
         </div>
-        <div class = "col-6">
+        <div class = "col-6 text-end">
             <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
-            <i class="bi bi-plus-square"></i>&nbsp; Create</a>
+            <i class="bi bi-plus-square"></i>&nbsp; Create a New Category</a>
         </div>
     </div>
 
@@ -30,6 +30,7 @@
                 <th>Name</th>
                 <th>Order</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -38,10 +39,13 @@
                 <tr>
                 
                     <td width="10%">@myList[i].Id    </td>
-                    <td width="50%">@myList[i].Name</td>
+                    <td width="50%">@myList[i].Name  </td>
                     <td>@myList[i].DisplayOrder</td>
                     <td>
-                        <a asp-controller="Category" asp-action="Edit" asp-route-id="@myList[i].Id" class="btn btn-secondary mx-2" ><i class="bi bi-pencil-square"></i> &nbsp; Edit</a>
+                        <a asp-controller="Category" asp-action="Edit" asp-route-id="@myList[i].Id" class="btn btn-secondary" style="width:100px"><i class="bi bi-pencil-square"></i> &nbsp; Edit</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Category" asp-action="Delete" asp-route-id="@myList[i].Id" class="btn btn-danger" style="width:100px" ><i class="bi bi-trash2-fill"></i> &nbsp; Delete</a>
                     </td>
                 </tr>
             }
