@@ -25,12 +25,25 @@ namespace BulkyBookWeb.Controllers
             return View(objCategoryList);
         }
 
-        //CREAT GET
+        //CREATE GET
         public IActionResult Create()
         {
             //IEnumerable<Category> objCategoryList = _db.Categories;
             //return View(objCategoryList);
             return View();
+        }
+
+        //CREATE POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Category obj)
+        {
+            _db.Categories.Add(obj);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+           
+            //return View();
         }
     }
 }
